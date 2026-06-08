@@ -1,0 +1,20 @@
+!create a username and password
+
+username camara pri 15 password camara
+
+
+
+!create a domain name
+ip domain name araknet.com
+
+
+
+!enable ssh
+
+line vty 0 4
+ login local
+ transport input all
+
+
+!generate a crypto key for ssh
+crypto key generate rsa
