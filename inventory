@@ -1,7 +1,28 @@
-192.168.5.1
-192.168.5.2
-192.168.5.3
-192.168.5.4
-192.168.5.5
-192.168.5.6
-192.168.6.1
+[SWACCESS]
+SW1 ansible_host=192.168.5.1
+SW2 ansible_host=192.168.5.2
+SW3 ansible_host=192.168.5.3
+
+[FED]
+FED ansible_host=192.168.5.4
+
+[ROUTEUR]
+R1 ansible_host=192.168.5.5
+R2 ansible_host=192.168.5.6
+
+[SWAUTO]
+SW-AUTO ansible_host=192.168.6.1
+
+[ALLSWITCHS:children]
+SWACCESS
+FED
+
+[ALLROUTEURS:children]
+ROUTEUR
+
+[ALLDEVICES:children]
+ALLSWITCHS
+ALLROUTEURS
+
+[ALLDEVICES:vars]
+ansible_user=camara
