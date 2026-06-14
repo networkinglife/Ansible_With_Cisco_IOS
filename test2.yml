@@ -1,0 +1,16 @@
+---
+# This playbook is used to ping test all the network devices
+
+# Play 1
+
+
+- hosts: ALLDEVICES
+  gather_facts: false
+  connection: local
+
+  tasks:
+
+    - name: ping test for network
+      ios_command:
+        commands:
+          - show version
